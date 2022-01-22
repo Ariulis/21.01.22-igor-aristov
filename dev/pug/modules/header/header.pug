@@ -1,0 +1,23 @@
++b.HEADER.header.ibg
+  +e.IMG(src= content.header.bgImage, alt="header image").bg_image
+  +b.NAV.navigate.__navigate
+    +e.wrapper
+      +b.menu.__menu
+        +b.BUTTON.menu-icon 
+          span
+          span
+          span
+        +e.UL.list
+          each item in nav.menu.items 
+            +e.LI.item 
+              +e.A(href='#' data-goto= item.dataGoTo).link= item.title
+        +b.phone.__phone
+          +e.A(href=`mailto:${nav.menu.phone.link}` class='link icon-phone')= nav.menu.phone.title
+
+  +e.body 
+    +e.H1.title= content.header.content.title
+    +e.H2.subtitle= content.header.content.subTitle
+    +e.excerpt= content.header.content.excerpt
+    +e.A(href='#' data-goto='#contacts').btn= content.header.content.link
+
++b.A(href='#').go-top

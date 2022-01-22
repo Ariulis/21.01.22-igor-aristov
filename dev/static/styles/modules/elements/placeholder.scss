@@ -1,0 +1,37 @@
+// Placeholder
+
+::-webkit-input-placeholder {
+  font-size: inherit;
+  color: #999;
+}
+::-moz-placeholder {
+  font-size: inherit;
+  color: #999;
+} /* Firefox 19+ */
+:-moz-placeholder {
+  font-size: inherit;
+  color: #999;
+} /* Firefox 18- */
+:-ms-input-placeholder {
+  font-size: inherit;
+  color: #999;
+}
+:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+:focus::-moz-placeholder {
+  color: transparent;
+}
+:focus:-moz-placeholder {
+  color: transparent;
+}
+:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+// Autofill input
+
+// &:-webkit-autofill {
+//   -webkit-box-shadow: 0 0 0 30px #212121 inset;
+//   -webkit-text-fill-color: #999 !important;
+// }

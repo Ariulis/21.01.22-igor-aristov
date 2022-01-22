@@ -1,0 +1,33 @@
+include ../../../node_modules/bemto.pug/bemto.pug
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+  head
+    meta(charset="utf-8")
+    title #{title}
+    <!--[if IE]>
+    meta(http-equiv='X-UA-Compatible' content="IE = edge")
+    <![endif]-->
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    meta(name="keywords" content="")
+    meta(name="description" content="Hello world!")
+    link(rel="shortcut icon" type="image/x-icon" href="static/images/favicon.ico")
+    style
+      include ../../static/styles/header.css
+      //- include ../../static/styles/modules/elements/pagePreloader.css
+      //- script
+      //-   include ../../static/js/modules/pagePreloader.js
+  body
+    //- +pagePreloader
+    .wrapper
+      include ../modules/header/header
+      main
+        block content
+      include ../modules/footer/footer
+    block styles
+      link(rel="stylesheet" href="static/css/styles.css")
+    block scripts
+      script(defer src="static/js/libs.js")
+      script(defer src="static/js/main.js")

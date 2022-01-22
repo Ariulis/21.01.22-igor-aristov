@@ -1,0 +1,215 @@
+@import "../../utils/fonts";
+@import "../../utils/iconfont";
+@import "../../utils/null";
+@import "../elements/buttons";
+@import "../../utils/vars";
+@import "../../utils/mixins";
+@import "../../utils/libs";
+// @import "../../utils/sprite";
+// @include sprites($spritesheet-sprites);
+
+// -------------------------
+
+body {
+  &._lock {
+    overflow: hidden;
+  }
+  &._touch {
+  }
+  &._pc {
+    .navigate {
+      a {
+        position: relative;
+        transition: all 0.3s ease;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.header {
+  min-height: 100vh;
+  background-attachment: fixed;
+  @include adaptive-value("padding-top", 250, 100);
+  @include adaptive-value("padding-bottom", 50, 30);
+  padding-left: 15px;
+  padding-right: 15px;
+  &__body {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__title {
+    text-shadow: 0 4px 5px #000;
+    text-transform: uppercase;
+    color: #fff;
+    @include r-font(30, 18);
+    @include adaptive-value("margin-bottom", 50, 25);
+  }
+  &__subtitle {
+    text-shadow: 0 4px 5px #000;
+    text-transform: uppercase;
+    color: #fff;
+    @include adaptive-value("margin-bottom", 100, 50);
+    @include r-font(70, 35);
+  }
+  &__excerpt {
+    text-shadow: 0 4px 5px #000;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: #fff;
+    @include r-font(24, 14);
+    margin-bottom: 50px;
+  }
+  &__btn {
+    @extend %btn;
+  }
+}
+.scroll {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+.navigate {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  @include adaptive-value("height", 70, 50);
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.315);
+  z-index: 10;
+  &._open {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      z-index: 2;
+    }
+  }
+  a {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  &__wrapper {
+    @extend .container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  &__list {
+    @media (min-width: $md) {
+      display: flex;
+      justify-content: center;
+    }
+    @media (max-width: $md) {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 90px 20px 30px;
+      transition: all 0.3s ease;
+      overflow: auto;
+      &._open {
+        left: 0;
+      }
+    }
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+    @media (max-width: $md) {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+    @media (min-width: $md) {
+      &:not(:last-child) {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translate(10px, -50%);
+          right: 0;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background-color: #000;
+        }
+      }
+    }
+  }
+  &__link {
+    text-transform: uppercase;
+  }
+}
+.phone {
+  z-index: 5;
+}
+.icon-phone {
+  &::before {
+    font-size: 22px;
+    margin-right: 5px;
+    display: inline-block;
+    transform: rotate(-20deg);
+  }
+}
+.menu-icon {
+  position: relative;
+  width: 20px;
+  height: 18px;
+  display: none;
+  z-index: 5;
+  @media (max-width: $md) {
+    display: block;
+  }
+  span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.3s ease;
+    &:first-child {
+      top: 0;
+    }
+    &:nth-child(2) {
+      top: 8px;
+      transform: scale(1);
+    }
+    &:last-child {
+      bottom: 0;
+    }
+  }
+  &.active {
+    span {
+      &:first-child {
+        top: 8px;
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        transform: scale(0);
+      }
+      &:last-child {
+        bottom: 8px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
