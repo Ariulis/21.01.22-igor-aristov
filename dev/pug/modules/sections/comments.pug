@@ -1,1 +1,15 @@
 +b.SECTION#comments.comments
+  +e.H2.title= content.comments.title 
+  +b.slider.__slider
+    +b.swiper-button-prev
+    +b.swiper-button-next
+    +b.swiper-container
+      +b.swiper-wrapper
+        each item in content.comments.comments
+          +b.swiper-slide
+            +e.body
+              +e.DIV(class=`icon ${content.comments.commentIcon}`)
+              +e.SPAN.name= item.client
+              +e.SPAN.status= item.status
+              +e.P.comment= item.comment
+      +b.swiper-pagination

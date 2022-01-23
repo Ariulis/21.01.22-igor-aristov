@@ -5,13 +5,23 @@ const ibgElements = document.querySelectorAll(".ibg"),
       navigator.userAgent
     ),
   body = document.body,
-  menuLinks = document.querySelectorAll("[data-goto]"),
+  menuLinkGoTo = document.querySelectorAll("[data-goto]"),
+  menuLinks = document.querySelectorAll(".menu__link"),
   navigateObject = document.querySelector(".navigate"),
   goTopButton = document.querySelector(".go-top"),
   headerElement = document.querySelector("header"),
   menuBurger = document.querySelector(".menu-icon"),
   menu = document.querySelector(".menu__list"),
-  headerBody = document.querySelector(".header__body");
+  headerBody = document.querySelector(".header__body"),
+  sections = document.querySelectorAll("section"),
+  copyBlock = document.querySelector(".footer__copy");
+
+// footer date
+
+if (copyBlock) {
+  const copyBlockText = copyBlock.innerHTML;
+  copyBlock.innerHTML = `${new Date().getFullYear()} ${copyBlockText}`;
+}
 
 // menuBurger click
 
@@ -26,13 +36,10 @@ function clickMenuBurger() {
 
 // smooth scroll
 
-if (menuLinks.length > 0) {
-  menuLinks.forEach((link) => {
+if (menuLinkGoTo.length > 0) {
+  menuLinkGoTo.forEach((link) => {
     link.addEventListener("click", function (e) {
       smoothScrollEvent(e);
-      if (body.classList.contains("_pc")) {
-        toggleActiveClassMenuLink();
-      }
       if (menuBurger.classList.contains("active")) {
         clickMenuBurger();
       }
@@ -60,7 +67,30 @@ function smoothScrollEvent(event) {
   });
 }
 
-function toggleActiveClassMenuLink() {}
+// toggle active class for menu link
+
+function toggleActiveClassMenuLink(distance) {
+  const menuHeight = navigateObject.clientHeight;
+
+  sections.forEach((section, idx) => {
+    if (section.offsetTop - menuHeight - 50 <= distance) {
+      removeClassInArrElements(menuLinks, "active");
+      menuLinks[idx].classList.add("active");
+    }
+  });
+
+  if (headerElement.clientHeight - 100 >= distance) {
+    removeClassInArrElements(menuLinks, "active");
+  }
+}
+
+function removeClassInArrElements(arr, className) {
+  arr.forEach((element) => {
+    if (element.classList.contains(className)) {
+      element.classList.remove(className);
+    }
+  });
+}
 
 // isMobile
 
@@ -99,8 +129,8 @@ window.addEventListener("scroll", function () {
   if (goTopButton) {
     goTopButtonFunction();
   }
-  if (distance <= headerElement.scrollHeight) {
-    toggleActiveClassMenuLink();
+  if (body.classList.contains("_pc")) {
+    toggleActiveClassMenuLink(distance);
   }
 });
 
@@ -121,3 +151,24 @@ function goTopButtonFunction() {
     }
   }
 }
+
+// slider
+
+const swiper = new Swiper(".swiper-container", {
+  // autoplay: {
+  //   delay: 5000,
+  //   disableOnInteraction: false,
+  // },
+  autoHeight: true,
+  slidesPerView: 1,
+  speed: 800,
+  pagination: {
+    el: ".swiper-pagination",
+    type: "bullets",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});

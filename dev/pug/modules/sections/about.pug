@@ -1,1 +1,10 @@
 +b.SECTION#about.about
+  +e.container
+    +e.H2.title= content.about.title
+    +e.body 
+      +e.photo.ibg
+        img(src= content.about.photo, alt="about photo")
+      +e.text
+        +e.desc-title= content.about.content.title
+        each item in content.about.content.text
+          +e.P.desc-item= item

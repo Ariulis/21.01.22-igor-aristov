@@ -1,0 +1,12 @@
++b.FOOTER.footer
+  +e.container
+    +e.copy
+      span= ` ${content.footer.copy}` 
+    +e.socials
+      each item, index in content.footer.socials
+        if index === 0
+          +e.A(href=`mailto:${item.link}` class=`link ${item.icon}`)
+        else if index === 1
+          +e.A(href=`tel:${item.link}` class=`link icon-phone`)
+        else
+          +e.A(href= item.link class=`link ${item.icon}`)

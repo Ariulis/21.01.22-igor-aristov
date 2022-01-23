@@ -1,1 +1,7 @@
-+b.SECTION#principles.principles
++b.SECTION#principles.principles.ibg
+  img(src= content.principles.bgImage, alt="principles bg")
+  +e.H2.title= content.principles.title
+  +e.container
+    +e.body
+      each item in content.principles.content 
+        +e.DIV(class=`item ${item.icon}`)= item.principle

@@ -13,6 +13,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-phone:before {
+  content: "\e90f";
+}
 .icon-approach:before {
   content: "\e900";
 }
@@ -34,16 +37,16 @@
 .icon-facebook:before {
   content: "\e906";
 }
+.icon-heartbeat:before {
+  content: "\e907";
+}
 .icon-money:before {
   content: "\e908";
-}
-.icon-phone:before {
-  content: "\e909";
 }
 .icon-professional:before {
   content: "\e90a";
 }
-.icon-telegram-plane:before {
+.icon-telegram:before {
   content: "\e90b";
 }
 .icon-viber:before {
