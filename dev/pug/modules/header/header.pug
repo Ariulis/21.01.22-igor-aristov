@@ -12,7 +12,11 @@
             +e.LI.item 
               +e.A(href='#' data-goto= item.dataGoTo).link= item.title
         +b.phone.__phone
-          +e.A(href=`tel:${nav.menu.phone.link}` class='link icon-phone')= nav.menu.phone.title
+          each link, index in nav.menu.contacts
+            if index !== 2
+              +e.A(href=`tel:${link.link}` class=`link ${link.icon}` title= link.title)
+            else
+              +e.A(href=`tel:${link.link}` class=`link ${link.icon}` title='Phone')= link.title
 
   +e.body 
     +e.H1.title= content.header.content.title

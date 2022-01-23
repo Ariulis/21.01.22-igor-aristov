@@ -155,10 +155,10 @@ function goTopButtonFunction() {
 // slider
 
 const swiper = new Swiper(".swiper-container", {
-  // autoplay: {
-  //   delay: 5000,
-  //   disableOnInteraction: false,
-  // },
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
   autoHeight: true,
   slidesPerView: 1,
   speed: 800,

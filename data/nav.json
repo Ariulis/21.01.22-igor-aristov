@@ -1,9 +1,22 @@
 {
   "menu": {
-    "phone": {
-      "link": "+380936350611",
-      "title": "+38 (093) 635-06-11"
-    },
+    "contacts": [
+      {
+        "icon": "icon-viber",
+        "link": "+380936350611",
+        "title": "Viber"
+      },
+      {
+        "icon": "icon-whatsapp",
+        "link": "+380936350611",
+        "title": "WhatsApp"
+      },
+      {
+        "icon": "icon-phone",
+        "link": "+380936350611",
+        "title": "+38 (093) 635-06-11"
+      }
+    ],
     "items": [
       { "title": "обо мне", "dataGoTo": "#about" },
       { "title": "принципы", "dataGoTo": "#principles" },
