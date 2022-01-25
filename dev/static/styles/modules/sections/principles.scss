@@ -1,3 +1,31 @@
+body {
+  &._touch {
+    [class*="icon-money"] {
+      &.active {
+        span {
+          bottom: -30px;
+          opacity: 1;
+          visibility: visible;
+          pointer-events: all;
+        }
+      }
+    }
+  }
+  &._pc {
+    [class*="icon-money"] {
+      cursor: pointer;
+      &:hover {
+        span {
+          bottom: -30px;
+          opacity: 1;
+          visibility: visible;
+          pointer-events: all;
+        }
+      }
+    }
+  }
+}
+
 .principles {
   background-attachment: fixed;
   @extend %section-padding;
@@ -15,17 +43,16 @@
     @media (max-width: $lg) {
       max-width: 500px;
       margin: 0 auto;
-      @include adaptive-value('padding-left', 100, 20);
+      @include adaptive-value("padding-left", 100, 20);
     }
-
   }
   &__item {
     padding-left: 30px;
     @include r-font(30, 18);
     font-weight: 500;
     flex: 0 0 50%;
-    &:not(:last-child) {
-      @include adaptive-value('margin-bottom', 60, 15);
+    &:not(:last-child), &:not(:nth-child(5)) {
+      @include adaptive-value("margin-bottom", 60, 15);
     }
     &::before {
       margin-right: 20px;
@@ -33,6 +60,49 @@
     @media (max-width: $lg) {
       flex: 0 0 100%;
       padding: 0;
+    }
+  }
+  [class*="icon-money"] {
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: "i";
+      position: absolute;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      font-size: 12px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @media (min-width: $lg) {
+        @include adaptive-value('left', 350, 250);
+      }
+      @media (max-width: $lg) {
+        @include adaptive-value('left', 340, 200);
+      }
+    }
+    span {
+      position: absolute;
+      bottom: -40px;
+      left: 40px;
+      width: 250px;
+      text-align: center;
+      padding: 5px;
+      font-size: 12px;
+      color: black;
+      background-color: #fff;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      @media (max-width: $lg) {
+        left: 20px;
+      }
     }
   }
 }

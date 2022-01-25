@@ -3,5 +3,10 @@
   +e.H2.title= content.principles.title
   +e.container
     +e.body
-      each item in content.principles.content 
-        +e.DIV(class=`item ${item.icon}`)= item.principle
+      each item, index in content.principles.content
+        if index === 5
+          +e.DIV(class=`item ${item.icon}`)
+            span= content.principles.card
+            | #{item.principle}
+        else 
+          +e.DIV(class=`item ${item.icon}`)= item.principle

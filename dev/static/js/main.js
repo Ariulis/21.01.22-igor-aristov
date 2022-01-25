@@ -14,7 +14,92 @@ const ibgElements = document.querySelectorAll(".ibg"),
   menu = document.querySelector(".menu__list"),
   headerBody = document.querySelector(".header__body"),
   sections = document.querySelectorAll("section"),
-  copyBlock = document.querySelector(".footer__copy");
+  copyBlock = document.querySelector(".footer__copy"),
+  moneyBlock = document.querySelector(".icon-money"),
+  phoneInput = document.querySelectorAll('input[name="phone"]'),
+  im = new Inputmask("+99 (999) 999-99-99"),
+  form = document.querySelector(".contacts__form"),
+  contactsSection = document.querySelector(".contacts");
+
+// Input mask, validation form
+
+im.mask(phoneInput);
+
+// form validate, sending
+
+form.addEventListener("submit", formSend);
+
+async function formSend(e) {
+  e.preventDefault();
+
+  const error = formValidate(form),
+    formData = new FormData(form);
+
+  if (error === 0) {
+    const response = await fetch("phpmailer/sendmail.php", {
+      method: "POST",
+      body: formData,
+    });
+    if (response.ok) {
+      const result = await response.json();
+      alert(result.message);
+      formPreview.innerHTML = "";
+      form.reset();
+      contactsSection.classList.remove("sending");
+    } else {
+      form.reset();
+      alert("Error!");
+      contactsSection.classList.remove("sending");
+    }
+  }
+}
+
+function formValidate(form) {
+  let error = 0;
+  const validateInputs = form.querySelectorAll(".validate");
+
+  for (let i = 0; i < validateInputs.length; i++) {
+    const inputElement = validateInputs[i];
+    formRemovError(inputElement);
+    if (inputElement.classList.contains("req") && inputElement.value === "") {
+      formAddError(inputElement);
+      error++;
+      inputElement.nextElementSibling.innerHTML = "Это поле нужно заполнить";
+      inputElement.nextElementSibling.style.display = "block";
+    } else if (inputElement.classList.contains("email")) {
+      if (isEmail(inputElement)) {
+        formAddError(inputElement);
+        error++;
+        inputElement.nextElementSibling.innerHTML = "Введите корректый email";
+        inputElement.nextElementSibling.style.display = "block";
+      }
+    }
+  }
+  return error;
+}
+
+function formAddError(inputElement) {
+  inputElement.parentElement.classList.add("error");
+  inputElement.classList.add("error");
+}
+function formRemovError(inputElement) {
+  inputElement.parentElement.classList.remove("error");
+  inputElement.classList.remove("error");
+  inputElement.nextElementSibling.style.display = "none";
+}
+function isEmail(inputElement) {
+  return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(
+    inputElement.value
+  );
+}
+
+// moneyBlock click
+
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("icon-money")) {
+    e.target.classList.toggle("active");
+  }
+});
 
 // footer date
 
@@ -155,10 +240,10 @@ function goTopButtonFunction() {
 // slider
 
 const swiper = new Swiper(".swiper-container", {
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
+  // autoplay: {
+  //   delay: 5000,
+  //   disableOnInteraction: false,
+  // },
   autoHeight: true,
   slidesPerView: 1,
   speed: 800,

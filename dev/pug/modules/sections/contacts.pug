@@ -1,2 +1,35 @@
-+b.SECTION#contacts.contacts
-  +e.H2.title
++b.SECTION#contacts.contacts.ibg
+  img(src= content.contacts.bgImage, alt="contacts bg image")
+  +e.H2.title= content.contacts.title
+  +e.container
+    +e.form-wrapper
+      +e.FORM.form
+        +e.form-title= content.contacts.formTitle
+        +e.form-item 
+          +e.INPUT(type='text' name='name' placeholder='Ваше имя*' class='input req validate')
+          small
+        +e.form-item 
+          +e.INPUT(type='text' name='email' placeholder='E-mail*' class='input email req validate')
+          small
+        +e.form-item 
+          +e.INPUT(type='text' name='phone' placeholder='Телефон' class='input tel validate')
+          small
+        +e.form-item 
+          +e.TEXTAREA(name='message' placeholder='С какой темой Вы хотите поработать?*' class='input textarea req validate')
+          small
+        +e.BUTTON(type='submit').form-btn Отправить
+
+    +b.contacts-content
+      +e.header 
+        +e.header-top= content.contacts.description.topText
+        +e.header-bottom
+          +e.UL.header-list
+            each item in content.contacts.description.items 
+              +e.LI.header-item= item
+      +e.footer 
+        +e.footer-title= content.contacts.contacts.title
+        each contact, index in content.contacts.contacts.items
+          if index === 1
+            +e.A(href=`mailto:${contact.contact}` class=`contact-item ${contact.icon}` title= contact.title)= contact.contact
+          else 
+            +e.A(href=`tel:${contact.contact[0]}` class=`contact-item ${contact.icon}` title= contact.title)= contact.contact[1]

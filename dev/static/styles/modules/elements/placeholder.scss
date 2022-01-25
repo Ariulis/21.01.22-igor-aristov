@@ -31,7 +31,10 @@
 
 // Autofill input
 
-// &:-webkit-autofill {
-//   -webkit-box-shadow: 0 0 0 30px #212121 inset;
-//   -webkit-text-fill-color: #999 !important;
-// }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff !important;
+}

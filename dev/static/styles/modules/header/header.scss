@@ -5,7 +5,7 @@
 @import "../elements/buttons";
 @import "../../utils/vars";
 @import "../../utils/mixins";
-@import "../../utils/libs";
+@import "../../utils/libs/animate";
 // @import "../../utils/sprite";
 // @include sprites($spritesheet-sprites);
 
@@ -42,7 +42,7 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   &__body {
-    max-width: 870px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
   }

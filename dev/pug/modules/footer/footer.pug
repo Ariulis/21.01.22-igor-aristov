@@ -5,8 +5,8 @@
     +e.socials
       each item, index in content.footer.socials
         if index === 0
-          +e.A(href=`mailto:${item.link}` class=`link ${item.icon}`)
+          +e.A(href=`mailto:${item.link}` class=`link ${item.icon}` title= item.title)
         else if index === 1
-          +e.A(href=`tel:${item.link}` class=`link icon-phone`)
+          +e.A(href=`tel:${item.link}` class=`link icon-phone` title= item.title)
         else
-          +e.A(href= item.link class=`link ${item.icon}`)
+          +e.A(href= item.link class=`link ${item.icon}` title= item.title)
