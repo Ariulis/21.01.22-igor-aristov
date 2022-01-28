@@ -3,7 +3,7 @@ const gulp = require("gulp"),
   svgSprite = require("./spriteSVG"),
   pngSprite = require("./spritePNG"),
   styles = require("./styles"),
-  headerStyles = require("./headerStyles"),
+  // headerStyles = require("./headerStyles"),
   pug2html = require("./pug"),
   script = require("./scripts"),
   vendorsJS = require("./vendorsJS"),
@@ -34,7 +34,7 @@ module.exports = function serve(cb) {
   gulp
     .watch(
       "dev/static/styles/**/*.scss",
-      gulp.series(styles, headerStyles, pug2html)
+      gulp.series(styles, pug2html)
     )
     .on("change", server.reload);
   gulp

@@ -13,7 +13,7 @@ module.exports = function styles() {
   return gulp
     .src("dev/static/styles/styles.scss")
     .pipe(plumber())
-    .pipe(gulpif(!argv.prod, sourcemaps.init()))
+    // .pipe(gulpif(!argv.prod, sourcemaps.init()))
     .pipe(scss())
     .pipe(
       autoprefixer({
@@ -22,21 +22,19 @@ module.exports = function styles() {
       })
     )
     .pipe(
-      gulpif(
-        argv.prod,
-        cleanCSS(
-          {
-            debug: true,
-            compatibility: "*",
-          },
-          (details) => {
-            console.log(
-              `${details.name}: Original size:${details.stats.originalSize} - Minified size: ${details.stats.minifiedSize}`
-            );
-          }
-        )
+      cleanCSS(
+        {
+          debug: true,
+          compatibility: "*",
+        },
+        (details) => {
+          console.log(
+            `${details.name}: Original size:${details.stats.originalSize} - Minified size: ${details.stats.minifiedSize}`
+          );
+        }
       )
     )
     .pipe(gulpif(!argv.prod, sourcemaps.write()))
-    .pipe(gulp.dest("docs/static/css"));
+    .pipe(gulp.dest("dev/static/styles/"));
+    // .pipe(gulp.dest(["docs/static/css", "dev/static/styles/"]));
 };

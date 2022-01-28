@@ -3,7 +3,7 @@ body {
     [class*="icon-money"] {
       &.active {
         span {
-          bottom: -30px;
+          bottom: -35px;
           opacity: 1;
           visibility: visible;
           pointer-events: all;
@@ -16,7 +16,7 @@ body {
       cursor: pointer;
       &:hover {
         span {
-          bottom: -30px;
+          bottom: -35px;
           opacity: 1;
           visibility: visible;
           pointer-events: all;
@@ -89,10 +89,10 @@ body {
       position: absolute;
       bottom: -40px;
       left: 40px;
-      width: 250px;
+      min-width: 250px;
       text-align: center;
       padding: 5px;
-      font-size: 12px;
+      font-size: 16px;
       color: black;
       background-color: #fff;
       border-radius: 1px;
@@ -101,6 +101,7 @@ body {
       visibility: hidden;
       pointer-events: none;
       @media (max-width: $lg) {
+        font-size: 12px;
         left: 20px;
       }
     }

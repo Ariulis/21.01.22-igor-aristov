@@ -1,5 +1,14 @@
 +b.SECTION#principles.principles.ibg
-  img(src= content.principles.bgImage, alt="principles bg")
+  +e.PICTURE.bg_image
+    each item, index in content.principles.bgImages
+      if index === 0
+        source(type="image/webp" media="(min-width: 1500px)" srcset= item)
+      else if index === 1
+        source(type="image/webp" media="(min-width: 993px) and (max-width: 1499px)" srcset= item)
+      else if index === 2
+        source(type="image/webp" media="(max-width: 992px)" srcset= item)
+      else 
+        img(src= item alt="bg image")
   +e.H2.title= content.principles.title
   +e.container
     +e.body

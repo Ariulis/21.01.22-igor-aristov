@@ -1,9 +1,18 @@
 +b.HEADER.header.ibg
-  +e.IMG(src= content.header.bgImage, alt="header image").bg_image
+  +e.PICTURE.bg_image
+    each item, index in content.header.bgImages
+      if index === 0
+        source(type="image/webp" media="(min-width: 1500px)" srcset= item)
+      else if index === 1
+        source(type="image/webp" media="(min-width: 993px) and (max-width: 1499px)" srcset= item)
+      else if index === 2
+        source(type="image/webp" media="(max-width: 992px)" srcset= item)
+      else 
+        img(src= item alt="bg image")
   +b.NAV.navigate.__navigate
     +e.wrapper
       +b.menu.__menu
-        +b.BUTTON.menu-icon 
+        +b.BUTTON.menu-icon(aria-label='menu icon button')
           span
           span
           span

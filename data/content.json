@@ -1,6 +1,11 @@
 {
   "header": {
-    "bgImage": "./static/images/content/header/top_bg.jpg",
+    "bgImages": [
+      "./static/images/content/header/top_bg(1600x846).webp",
+      "./static/images/content/header/top_bg(1000x529).webp",
+      "./static/images/content/header/top_bg(600x317).webp",
+      "./static/images/content/header/top_bg.jpg"
+    ],
     "content": {
       "title": "психолог психотерапевт",
       "subTitle": "игорь александрович аристов",
@@ -10,12 +15,12 @@
   },
   "about": {
     "title": "Обо мне",
-    "photo": "./static/images/content/about/aboutPhoto.jpg",
+    "photo": "./static/images/content/about/aboutPhoto.webp",
     "content": {
       "title": "Деликатная и результативная психологическая помощь.",
       "text": [
-        "В своей работе я опираюсь прежде всего на свой жизненный опыт и ценности восточной, и западной культуры.", 
-        "Мне 59 лет. Я Телец и Тигр. У меня 6 детей от 3-х жён, Слава Создателю, внук и внучка, и все счастливы.", 
+        "В своей работе я опираюсь прежде всего на свой жизненный опыт и ценности восточной, и западной культуры.",
+        "Мне 59 лет. Я Телец и Тигр. У меня 6 детей от 3-х жён, Слава Создателю, внук и внучка, и все счастливы.",
         "Я помогу Вам сориентироваться в этом запутанном мире. Дам вам ЦУ, как обрести себя и жить в любви и радости.",
         "Запрос может быть по любой теме - бизнес, отношения, баланс, духовная практика, саморазвитие, здоровье, предназначение, кризисы, творческая реализация…",
         "Жизненный опыт и знания."
@@ -116,7 +121,12 @@
     "link": "оставить отзыв"
   },
   "principles": {
-    "bgImage": "./static/images/content/principles/2.jpg",
+    "bgImages": [
+      "./static/images/content/principles/2(1600x910).webp",
+      "./static/images/content/principles/2(1000x569).webp",
+      "./static/images/content/principles/2(600x341).webp",
+      "./static/images/content/principles/2.jpg"
+    ],
     "title": "Мои принципы работы",
     "content": [
       {
@@ -147,7 +157,12 @@
     "card": "карта Альфа Банка 4444 2450 0003 2406"
   },
   "contacts": {
-    "bgImage": "./static/images/content/principles/3.jpg",
+    "bgImages": [
+      "./static/images/content/contacts/3(1600x1147).webp",
+      "./static/images/content/contacts/3(1000x717).webp",
+      "./static/images/content/contacts/3(600x430).webp",
+      "./static/images/content/contacts/3.jpg"
+    ],
     "title": "Записаться на консультацию",
     "formTitle": "Записаться на личную или онлайн консультацию",
     "description": {

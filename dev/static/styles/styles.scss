@@ -1,7 +1,13 @@
+@import "utils/fonts";
+@import "utils/iconfont";
+@import "utils/null";
+@import "utils/libs/animate";
 @import "utils/vars";
 @import "utils/mixins";
-@import "utils/main";
+@import "utils/commonStyles";
 @import "utils/libs/swiper";
+// @import "../../utils/sprite";
+// @include sprites($spritesheet-sprites);
 
 // Модули
 @import "modules/modules";

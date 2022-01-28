@@ -15,10 +15,9 @@ html(lang="ru-RU")
     meta(name="description" content="Hello world!")
     link(rel="shortcut icon" type="image/x-icon" href="static/images/favicon.ico")
     style
-      include ../../static/styles/header.css
-      //- include ../../static/styles/modules/elements/pagePreloader.css
-      //- script
-      //-   include ../../static/js/modules/pagePreloader.js
+      include ../../static/styles/styles.css
+    //- script
+    //-   include ../../static/js/modules/pagePreloader.js
   body
     //- +pagePreloader
     .wrapper
@@ -26,8 +25,6 @@ html(lang="ru-RU")
       main
         block content
       include ../modules/footer/footer
-    block styles
-      link(rel="stylesheet" href="static/css/styles.css")
     block scripts
       script(defer src="static/js/libs.js")
       script(defer src="static/js/main.js")

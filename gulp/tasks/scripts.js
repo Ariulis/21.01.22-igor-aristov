@@ -6,12 +6,12 @@ const concat = require("gulp-concat");
 
 // Работа со скриптами
 
-const scripts = ["dev/static/js/main.js"];
+const scripts = ["dev/static/js/*.js"];
 
 module.exports = function script() {
   return gulp
     .src(scripts)
-    .pipe(concat("main.js"))
+    // .pipe(concat("main.js"))
     .pipe(gulpif(argv.prod, uglify()))
     .pipe(gulp.dest("docs/static/js/"));
 };

@@ -1,5 +1,14 @@
 +b.SECTION#contacts.contacts.ibg
-  img(src= content.contacts.bgImage, alt="contacts bg image")
+  +e.PICTURE.bg_image
+    each item, index in content.contacts.bgImages
+      if index === 0
+        source(type="image/webp" media="(min-width: 1500px)" srcset= item)
+      else if index === 1
+        source(type="image/webp" media="(min-width: 993px) and (max-width: 1499px)" srcset= item)
+      else if index === 2
+        source(type="image/webp" media="(max-width: 992px)" srcset= item)
+      else 
+        img(src= item alt="bg image")
   +e.H2.title= content.contacts.title
   +e.container
     +e.form-wrapper
