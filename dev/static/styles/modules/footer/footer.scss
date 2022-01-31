@@ -12,39 +12,22 @@ body {
 }
 
 .footer {
-  @include adaptive-value("padding-top", 50, 30);
-  @include adaptive-value("padding-bottom", 50, 30);
+  @include adaptive-value("padding-top", 50, 20);
+  @include adaptive-value("padding-bottom", 50, 20);
   background-color: slategray;
   &__container {
     @extend .container;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
   &__copy {
     @include r-font(24, 16);
     text-transform: uppercase;
     @media (max-width: $sm) {
-      order: 2;
       text-align: center;
       flex: 0 0 100%;
-    }
-  }
-  &__socials {
-    @media (max-width: $sm) {
-      margin-bottom: 15px;
-      order: 1;
-      flex: 0 0 100%;
-      text-align: center;
-    }
-  }
-  &__link {
-    &:not(:first-child) {
-      margin-left: 20px;
-    }
-    &::before {
-      @include r-font(30, 20);
     }
   }
 }

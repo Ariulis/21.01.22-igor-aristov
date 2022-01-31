@@ -9,28 +9,11 @@
         source(type="image/webp" media="(max-width: 992px)" srcset= item)
       else 
         img(src= item alt="bg image")
-  +b.NAV.navigate.__navigate
-    +e.wrapper
-      +b.menu.__menu
-        +b.BUTTON.menu-icon(aria-label='menu icon button')
-          span
-          span
-          span
-        +e.UL.list
-          each item in nav.menu.items 
-            +e.LI.item 
-              +e.A(href='#' data-goto= item.dataGoTo).link= item.title
-        +b.phone.__phone
-          each link, index in nav.menu.contacts
-            if index !== 2
-              +e.A(href=`tel:${link.link}` class=`link ${link.icon}` title= link.title)
-            else
-              +e.A(href=`tel:${link.link}` class=`link ${link.icon}` title='Phone')= link.title
 
   +e.body 
     +e.H1.title= content.header.content.title
     +e.H2.subtitle= content.header.content.subTitle
     +e.excerpt= content.header.content.excerpt
-    +e.A(href='#' data-goto='#contacts').btn= content.header.content.link
+    +e.A(href='#').btn= content.header.content.link
 
 +b.A(href='#').go-top

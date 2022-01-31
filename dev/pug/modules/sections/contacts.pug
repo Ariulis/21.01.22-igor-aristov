@@ -13,7 +13,6 @@
   +e.container
     +e.form-wrapper
       +e.FORM.form
-        +e.form-title= content.contacts.formTitle
         +e.form-item 
           +e.INPUT(type='text' name='name' placeholder='Ваше имя*' class='input req validate')
           small
@@ -38,7 +37,11 @@
       +e.footer 
         +e.footer-title= content.contacts.contacts.title
         each contact, index in content.contacts.contacts.items
-          if index === 1
-            +e.A(href=`mailto:${contact.contact}` class=`contact-item ${contact.icon}` title= contact.title)= contact.contact
+          if index === 0
+            +e.A(href=`mailto:${contact.contact}` class=`contact-item ${contact.icon}` title= contact.title target="_blank")= contact.contact
+          else if index === 1
+            +e.A(href=`viber://add?number=${contact.contact[0]}` class=`contact-item ${contact.icon}` title= contact.title target="_blank")= contact.contact[1]
+          else if index === 2
+            +e.A(href=`https://wa.me/${contact.contact[0]}` class=`contact-item ${contact.icon}` title= contact.title target="_blank")= contact.contact[1]
           else 
-            +e.A(href=`tel:${contact.contact[0]}` class=`contact-item ${contact.icon}` title= contact.title)= contact.contact[1]
+            +e.A(href=`https://telegram.im/${contact.contact[0]}` class=`contact-item ${contact.icon}` title= contact.title target="_blank")= contact.contact[1]

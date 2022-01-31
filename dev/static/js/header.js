@@ -13,7 +13,7 @@ const ibgElements = document.querySelectorAll(".ibg"),
   menuBurger = document.querySelector(".menu-icon"),
   menu = document.querySelector(".menu__list"),
   headerBody = document.querySelector(".header__body"),
-  sections = document.querySelectorAll("section");
+  sections = document.querySelectorAll("section")
 
 // isMobile
 
@@ -48,8 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-
-  
 
   // ibg
 
